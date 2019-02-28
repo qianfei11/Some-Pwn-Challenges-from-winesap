@@ -1,3 +1,3 @@
 # some challenges from bamboofox
 
-source from bamboofox's [videoes](https://www.youtube.com/feed/subscriptions/UCWIxPblsd5y4QGR1qhX3FGA) and [blog](https://bamboofox.github.io/)
+source from winesap's [videoes](https://www.youtube.com/user/seanwupi) and bamboofox's [blog](https://bamboofox.github.io/)
