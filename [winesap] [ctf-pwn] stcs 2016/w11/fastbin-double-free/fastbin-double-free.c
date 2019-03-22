@@ -1,10 +1,11 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
 
 void sh(char *cmd) {
 	system(cmd);
 }
+
 
 int main() {
 	setvbuf(stdout, 0, _IONBF, 0);
@@ -12,14 +13,15 @@ int main() {
 	char* ptr[10];
 	memset(ptr, 0, sizeof(ptr));
 	puts("1. malloc + gets\n2. free\n3. puts");
-	while (1) {
-		printf("> ");
+	while(1) {
+		printf(">");
 		scanf("%d %d", &cmd, &idx);
 		idx %= 10;
-		if (cmd==1) {
+		if(cmd==1) {
 			scanf("%d%*c", &sz);
 			ptr[idx] = malloc(sz);
-			fgets(ptr[idx], sz, stdin);
+			// fgets(ptr[idx], sz, stdin);
+			gets(ptr[idx]);
 		} else if (cmd==2) {
 			free(ptr[idx]);
 		} else if (cmd==3) {

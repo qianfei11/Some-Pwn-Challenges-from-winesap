@@ -13,12 +13,13 @@ int main() {
 	memset(ptr, 0, sizeof(ptr));
 	puts("1. malloc + gets\n2. free\n3. puts");
 	while (1) {
-		printf("> ");
+		printf(">");
 		scanf("%d %d", &cmd, &idx);
 		idx %= 10;
 		if (cmd==1) {
 			scanf("%d%*c", &sz);
 			ptr[idx] = malloc(sz);
+			// fgets(ptr[idx], sz, stdin);
 			gets(ptr[idx]);
 		} else if (cmd==2) {
 			free(ptr[idx]);
